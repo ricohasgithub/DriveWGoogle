@@ -153,13 +153,15 @@ def identifyTrafficSign(image):
     cv2.imshow("Warped", image)
 
     if segments in SIGNS_LOOKUP:
-        result_id = 2
+        id = 2
         
-        firebase.post('/id', result_id)
+        result = firebase.post('/id', id,{'print': 'silent'}, {'X_FANCY_HEADER': 'VERY FANCY'})
+        print(result)
         
         return SIGNS_LOOKUP[segments]
     else:
-        firebase.post('/id', 0)
+        result = firebase.post('/id', 0,{'print': 'silent'}, {'X_FANCY_HEADER': 'VERY FANCY'})
+        print(result)
         return None
 
 
