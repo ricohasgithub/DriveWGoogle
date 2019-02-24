@@ -4,7 +4,6 @@ import time
 from imutils.perspective import four_point_transform
 from imutils import contours
 import imutils
-import json
 from firebase import firebase
 
 camera = cv2.VideoCapture(0)
