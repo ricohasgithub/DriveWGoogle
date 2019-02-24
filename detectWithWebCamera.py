@@ -160,7 +160,7 @@ def identifyTrafficSign(image):
         
         return SIGNS_LOOKUP[segments]
     else:
-        firebase.post("")
+        firebase.post('/id', 0)
         return None
 
 
