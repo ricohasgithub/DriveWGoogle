@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, AppRegistry } from 'react-native';
 
 export default class App extends React.Component {
   render() {
@@ -11,6 +11,20 @@ export default class App extends React.Component {
   }
 }
 
+
+const signContStles = StyleSheet.create({
+    item: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        padding: 20,
+        margin: 5,
+        borderColor: '#000000',
+        borderWidth: 2,
+        backgroundColor: '#ffffff'
+     }
+});
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -19,3 +33,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+AppRegistry.registerComponent('DriveWGoogle', () => App);
