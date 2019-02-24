@@ -11,7 +11,6 @@ export const right = require('./assets/turnRight.png');
 class SignCont extends Component {
 
   static propTypes = {
-    content: PropTypes.string.isRequired,
     containerStyles: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.number,
@@ -21,13 +20,11 @@ class SignCont extends Component {
 
   constructor(props) {
       super(props);
-      this.state = {id:0};
+      this.state = {id:1};
   }
 
   onPress = () => {
-    this.setState({
-      complete: true
-    })
+    this.setState(prevState => ({ id: prevState.id + 1 }));
   }
 
   render = () => {
@@ -37,39 +34,39 @@ class SignCont extends Component {
     if (this.state.id === 0) {
       // No image or anything - no sign detected
       return (
-        <View style={containerStyles}>
-          <Text> No Sign Detected </Text>
-        </View>
+          <View style={containerStyles}>
+            <Text> No Sign Detected </Text>
+          </View>
       );
     } else if (this.state.id === 1) {
       // Go straight
       return (
-        <View style={containerStyles}>
-          <Image style={{width: 25, height: 25}} source={straight} />
-          <Text> Go Straight </Text>
-        </View>
+          <View style={containerStyles}>
+            <Image style={{width: 100, height: 100}} source={straight} />
+            <Text> Go Straight </Text>
+          </View>
       );
     } else if (this.state.id === 2) {
       // Turn Back
       return (
-        <View style={containerStyles}>
-          <Image style={{width: 25, height: 25}} source={back} />
-          <Text> Turn Back </Text>
-        </View>
+          <View style={containerStyles}>
+            <Image style={{width: 100, height: 100}} source={back} />
+            <Text> Turn Back </Text>
+          </View>
       );
     }  else if (this.state.id === 3) {
       // Turn Left
       return (
-        <View style={containerStyles}>
-          <Image style={{width: 25, height: 25}} source={left} />
-          <Text> Turn Left </Text>
-        </View>
+          <View style={containerStyles}>
+            <Image style={{width: 100, height: 100}} source={left} />
+            <Text> Turn Left </Text>
+          </View>
       );
     }  else if (this.state.id === 4) {
       // Turn Right
       return (
         <View style={containerStyles}>
-          <Image style={{width: 25, height: 25}} source={right} />
+          <Image style={{width: 100, height: 100}} source={right} />
           <Text> Turn Right </Text>
         </View>
       );

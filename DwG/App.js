@@ -1,6 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, AppRegistry } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, AppRegistry } from 'react-native';
 import firebase from 'firebase';
+
+import SignCont from './SignCont.js';
 
 const config = {
     databaseURL: "https://divew-89181.firebaseio.com",
@@ -14,9 +16,11 @@ if (!firebase.apps.length) {
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <ScrollView>
+        <SignCont
+          containerStyles = {sideSignContStyles.item}
+        />
+      </ScrollView>
     );
   }
 }
@@ -33,8 +37,11 @@ const sideSignContStyles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: 50,
+      width: 350,
+      height: 350,
+      padding: 10,
       margin: 10,
+      top: 20,
       borderColor: '#000000',
       borderWidth: 2,
       backgroundColor: '#ffffff'
