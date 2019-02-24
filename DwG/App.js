@@ -4,6 +4,8 @@ import firebase from 'firebase';
 
 import SignCont from './SignCont.js';
 
+import MapView from 'react-native-maps'
+
 const config = {
     databaseURL: "https://divew-89181.firebaseio.com",
     projectId: "divew-89181",
@@ -16,11 +18,11 @@ if (!firebase.apps.length) {
 export default class App extends React.Component {
   render() {
     return (
-      <ScrollView>
+      <View>
         <SignCont
           containerStyles = {sideSignContStyles.item}
         />
-      </ScrollView>
+      </View>
     );
   }
 }
@@ -37,11 +39,12 @@ const sideSignContStyles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
+      justifyContent: 'center',
+      top: 30,
       width: 350,
       height: 350,
-      padding: 10,
+      padding: 0,
       margin: 10,
-      top: 20,
       borderColor: '#000000',
       borderWidth: 2,
       backgroundColor: '#ffffff'

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Text, Image, View, TouchableOpacity } from 'react-native';
+import { Text, Image, View, TouchableOpacity, StyleSheet } from 'react-native';
 
 // Image imports
 export const straight = require('./assets/moveStraight.png');
@@ -15,12 +15,12 @@ class SignCont extends Component {
       PropTypes.array,
       PropTypes.number,
       PropTypes.shape({}),
-    ]).isRequired,
+    ]).isRequired
   };
 
   constructor(props) {
       super(props);
-      this.state = {id:1};
+      this.state = {id:0};
   }
 
   onPress = () => {
@@ -42,32 +42,28 @@ class SignCont extends Component {
       // Go straight
       return (
           <View style={containerStyles}>
-            <Image style={{width: 100, height: 100}} source={straight} />
-            <Text> Go Straight </Text>
+            <Image style={{width: 350, height: 350}} source={straight} />
           </View>
       );
     } else if (this.state.id === 2) {
       // Turn Back
       return (
           <View style={containerStyles}>
-            <Image style={{width: 100, height: 100}} source={back} />
-            <Text> Turn Back </Text>
+            <Image style={{width: 350, height: 350}} source={back} />
           </View>
       );
     }  else if (this.state.id === 3) {
       // Turn Left
       return (
           <View style={containerStyles}>
-            <Image style={{width: 100, height: 100}} source={left} />
-            <Text> Turn Left </Text>
+            <Image style={{width: 350, height: 350}} source={left} />
           </View>
       );
     }  else if (this.state.id === 4) {
       // Turn Right
       return (
         <View style={containerStyles}>
-          <Image style={{width: 100, height: 100}} source={right} />
-          <Text> Turn Right </Text>
+          <Image style={{width: 350, height: 350}} source={right} />
         </View>
       );
     }
