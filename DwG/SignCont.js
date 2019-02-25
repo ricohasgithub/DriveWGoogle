@@ -19,6 +19,8 @@ export const back = require('./assets/turnBack.png');
 export const left = require('./assets/turnLeft.png');
 export const right = require('./assets/turnRight.png');
 
+let co = 'None';
+
 class SignCont extends Component {
 
   static propTypes = {
@@ -31,61 +33,72 @@ class SignCont extends Component {
 
   constructor(props) {
       super(props);
-      this.state = {id:0};
+      this.state = {id:'None'};
   }
 
-  onPress = () => {
+  readUserData() {
       firebase.database().ref('id/').on('value', function (snapshot) {
-          this.setState({id: snapshot.val()});
+          return (<Text> snapshot.val(); </Text>);
       });
   }
+
+  // onPress = () => {
+  //   firebase.database().ref('id/').once('value', function (snapshot) {
+  //       co = snapshot.val();
+  //   });
+  // }
 
   render = () => {
 
     const { containerStyles, content } = this.props;
 
-    if (this.state.id === 0) {
+    if (this.state.id === 'None') {
       // No image or anything - no sign detected
       return (
         <TouchableOpacity>
           <View style={containerStyles}>
             <Text> No Sign Detected </Text>
+            <Text> {this.readUserData} </Text>
           </View>
           </TouchableOpacity>
       );
-    } else if (this.state.id === 1) {
+    } else if (this.state.id === 'Move Straight') {
       // Go straight
       return (
         <TouchableOpacity>
           <View style={containerStyles}>
             <Image style={{width: 350, height: 350}} source={straight} />
+            <Text> {this.state.id} </Text>
           </View>
         </TouchableOpacity>
       );
-    } else if (this.state.id === 2) {
+    } else if (this.state.id === 'Turn Back') {
       // Turn Back
       return (
         <TouchableOpacity>
           <View style={containerStyles}>
             <Image style={{width: 350, height: 350}} source={back} />
+            <Text> {this.state.id} </Text>
           </View>
         </TouchableOpacity>
       );
-    }  else if (this.state.id === 3) {
+    }  else if (this.state.id === 'Turn Left') {
       // Turn Left
       return (
         <TouchableOpacity>
           <View style={containerStyles}>
             <Image style={{width: 350, height: 350}} source={left} />
+            <Text> {this.state.id} </Text>
           </View>
         </TouchableOpacity>
       );
-    }  else if (this.state.id === 4) {
+    }  else if (this.state.id === 'Turn Right') {
       // Turn Right
       return (
         <TouchableOpacity>
         <View style={containerStyles}>
           <Image style={{width: 350, height: 350}} source={right} />
+          <Text> {this.state.id} </Text>
         </View>
         </TouchableOpacity>
       );
